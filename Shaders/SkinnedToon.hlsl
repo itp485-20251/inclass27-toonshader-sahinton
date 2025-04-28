@@ -55,6 +55,19 @@ float4 PS(VOut pIn) : SV_TARGET
      float d = dot(n, c_lightDir);
      d = 0.5f * d + 0.5f;
      d = d * d;
+    
+    if (d > 0.8)
+    {
+        d = 1.0;
+    }
+    else if (d > .4)
+    {
+        d = 0.5;
+    }
+    else
+    {
+        d = 0.0;
+    }
 
      float4 light = float4(d * c_lightColor, 1.0f);
 
